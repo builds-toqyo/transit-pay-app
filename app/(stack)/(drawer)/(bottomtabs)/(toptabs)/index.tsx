@@ -1,40 +1,15 @@
-import { View, Text, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 import React from "react";
-import { TwitterPost, twitterPosts } from "../../../../../data/DataStore";
 import { router } from "expo-router";
 
 const index = () => {
-  const navigateToPostDetails = (item: TwitterPost) => {
-    router.navigate({ pathname: "/post_details/", params: { id: item.id } });
-  };
-  const displayMedia = (item: TwitterPost, type: string) => {
-    console.log("Item is ", item);
-    if (item) {
-      router.navigate({
-        pathname: "/(stack)/media_player/",
-        params: { id: item.id, type: type },
-      });
-    }
-  };
   const render = ({ item }: any) => {
     return (
-      <View className="dark:bg-dark bg-white h-full dark:text-white text-dark">
-      <FlatList
-        data={twitterPosts}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={render}
-      />
-    </View>
+      <View className="dark:bg-dark bg-white h-full dark:text-white text-dark"></View>
     );
   };
   return (
-    <View className="dark:bg-dark bg-white h-full dark:text-white text-dark">
-      <FlatList
-        data={twitterPosts}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={render}
-      />
-    </View>
+    <View className="dark:bg-dark bg-white h-full dark:text-white text-dark"></View>
   );
 };
 

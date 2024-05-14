@@ -1,14 +1,10 @@
 import { StyleSheet, View, Text, Image } from "react-native";
 import React from "react";
 import { Fontisto } from "@expo/vector-icons";
-import {
-  DrawerContentScrollView,
-  DrawerItem,
-  DrawerItemList,
-} from "@react-navigation/drawer";
+
 import { useRouter } from "expo-router";
 import { useColorScheme } from "nativewind";
-import { Entypo } from "@expo/vector-icons";
+
 export const CustomDrawerContent = (props: any) => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
   const router = useRouter();
@@ -33,7 +29,7 @@ export const CustomDrawerContent = (props: any) => {
             />
             <View className="flex flex-col my-4">
               <Text className="font-bold text-lg dark:text-white text-dark">
-                Lukas
+                Nutcase
               </Text>
               <Text className="font-semibold text-base dark:text-white text-dark">
                 Name
@@ -43,7 +39,7 @@ export const CustomDrawerContent = (props: any) => {
         </View>
         <View className="flex flex-row mt-3">
           <Text className="mr-2 font-semibold text-base dark:text-white text-dark">
-          yes
+            yes
           </Text>
           <Text className="mr-2 font-semibold text-base dark:text-white text-dark">
             No

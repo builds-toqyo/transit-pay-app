@@ -3,7 +3,7 @@ import { Feather } from "@expo/vector-icons";
 import React from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
-import CustomDrawerContent from "../../../components/CustomDrawerContent";
+import CustomDrawerContent from "@/components/CustomDrawerContent";
 import { useColorScheme } from "nativewind/dist/stylesheet";
 const _layout = () => {
   const { colorScheme } = useColorScheme();
@@ -27,7 +27,6 @@ const _layout = () => {
             title: "",
             headerTitle: "X",
             headerTitleAlign: "center",
-            // headerLeft: () => {
             //   return (
             //     <Pressable onPress={openDrawer}>
             //       <Image
