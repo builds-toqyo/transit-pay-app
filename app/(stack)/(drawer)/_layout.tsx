@@ -25,7 +25,7 @@ const _layout = () => {
           name="(bottomtabs)"
           options={{
             title: "",
-            headerTitle: "X",
+            headerTitle: "Transport Wallet",
             headerTitleAlign: "center",
 
             headerRight: () => {
