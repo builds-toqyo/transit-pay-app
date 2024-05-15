@@ -18,7 +18,7 @@ const _layout = () => {
           tabBarIcon: () => {
             return (
               <Entypo
-                name="wallet"
+                name="home"
                 size={24}
                 color={ "black"}
               />
