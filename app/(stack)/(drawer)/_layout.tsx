@@ -27,22 +27,7 @@ const _layout = () => {
             title: "",
             headerTitle: "X",
             headerTitleAlign: "center",
-            //   return (
-            //     <Pressable onPress={openDrawer}>
-            //       <Image
-            //         style={{
-            //           marginHorizontal: 10,
-            //           borderRadius: 50,
-            //           height: 35,
-            //           width: 35,
-            //         }}
-            //         src={
-            //           "https://www.louismuriuki.dev/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flui.d6485f5e.jpg&w=3840&q=75"
-            //         }
-            //       />
-            //     </Pressable>
-            //   );
-            // },
+
             headerRight: () => {
               return (
                 <View style={{ marginHorizontal: 20 }}>

@@ -1,9 +1,9 @@
 import { Tabs } from "expo-router";
 import React from "react";
 import {
-  AntDesign,
-  Ionicons,
-  MaterialCommunityIcons,
+  Entypo,
+  MaterialIcons,
+  MaterialCommunityIcons
 } from "@expo/vector-icons";
 const _layout = () => {
   return (
@@ -17,24 +17,24 @@ const _layout = () => {
           headerShown: false,
           tabBarIcon: () => {
             return (
-              <AntDesign
-                name="home"
+              <Entypo
+                name="wallet"
                 size={24}
-                color={ "dark" ? "white" : "black"}
+                color={ "black"}
               />
             );
           },
         }}
       />
       <Tabs.Screen
-        name="call"
+        name="transport"
         options={{
           tabBarIcon: () => {
             return (
-              <Ionicons
-                name="call"
+              <MaterialIcons
+                name="emoji-transportation"
                 size={24}
-                color={ "dark" ? "white" : "black"}
+                color={ "black"}
               />
             );
           },
@@ -42,14 +42,14 @@ const _layout = () => {
         }}
       />
       <Tabs.Screen
-        name="messages"
+        name="analytics"
         options={{
           tabBarIcon: () => {
             return (
-              <AntDesign
-                name="mail"
+              <MaterialCommunityIcons
+                name="google-analytics"
                 size={24}
-                color={ "dark" ? "white" : "black"}
+                color={ "black"}
               />
             );
           },

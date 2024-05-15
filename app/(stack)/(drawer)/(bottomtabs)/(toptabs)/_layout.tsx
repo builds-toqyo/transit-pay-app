@@ -19,7 +19,7 @@ export const MaterialTopTabs = withLayoutContext<
 const RootLayout = () => {
   return (
     <View className="dark:bg-dark bg-white flex-1">
-      <Text className="dark:text-white text-dark">this is home</Text>
+      <Text className="dark:text-white text-dark"> this is home page </Text>
     </View>
   );
 };
