@@ -7,8 +7,12 @@ import {
 } from "@react-navigation/material-top-tabs";
 import { withLayoutContext } from "expo-router";
 import { ParamListBase, TabNavigationState } from "@react-navigation/native";
-import Ionicons from "@expo/vector-icons/Ionicons";
-
+import {
+  Entypo,
+  MaterialIcons,
+  MaterialCommunityIcons,
+  Ionicons
+} from "@expo/vector-icons";
 const { Navigator } = createMaterialTopTabNavigator();
 
 export const MaterialTopTabs = withLayoutContext<
@@ -22,7 +26,7 @@ const RootLayout = () => {
     <View className="flex-1 bg-white">
       <View className="flex-row items-center mx-12 my-9 bg-[#1F41BB] justify-between px-12 py-12 rounded-2xl">
         <View className="flex">
-          <Text className="text-lg font-bold ">Balancer</Text>
+          <Text className="text-lg font-bold text-white">Balance</Text>
           <Text className="text-xl text-white">Ksh 1000</Text>
         </View>
         <Ionicons name="add-circle-outline" size={32} color="white" />
