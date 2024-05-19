@@ -3,6 +3,7 @@ import React from "react";
 import {
   Entypo,
   MaterialIcons,
+  FontAwesome,
   MaterialCommunityIcons
 } from "@expo/vector-icons";
 const _layout = () => {
@@ -26,6 +27,36 @@ const _layout = () => {
           },
         }}
       />
+        <Tabs.Screen
+        name="wallet" 
+        options={{
+          tabBarIcon: () => {
+            return (
+              <MaterialIcons
+                name="wallet" 
+                size={24}
+                color={"black"}
+              />
+            );
+          },
+          headerShown: false,
+        }}
+      />
+       <Tabs.Screen
+        name="analytics"
+        options={{
+          tabBarIcon: () => {
+            return (
+              <MaterialCommunityIcons
+                name="google-analytics"
+                size={24}
+                color={ "black"}
+              />
+            );
+          },
+          headerShown: false,
+        }}
+      />
       <Tabs.Screen
         name="transport"
         options={{
@@ -41,13 +72,13 @@ const _layout = () => {
           headerShown: false,
         }}
       />
-      <Tabs.Screen
-        name="analytics"
+       <Tabs.Screen
+        name="profile"
         options={{
           tabBarIcon: () => {
             return (
-              <MaterialCommunityIcons
-                name="google-analytics"
+              <MaterialIcons
+                name="account-circle"
                 size={24}
                 color={ "black"}
               />
@@ -56,6 +87,22 @@ const _layout = () => {
           headerShown: false,
         }}
       />
+      <Tabs.Screen
+        name="settings" 
+        options={{
+          tabBarIcon: () => {
+            return (
+              <MaterialIcons
+                name="settings" 
+                size={24}
+                color={"black"}
+              />
+            );
+          },
+          headerShown: false,
+        }}
+      />
+     
     </Tabs>
   );
 };

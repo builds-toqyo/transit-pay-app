@@ -25,14 +25,13 @@ const _layout = () => {
           name="(bottomtabs)"
           options={{
             title: "",
-            headerTitle: "Transport Wallet",
             headerTitleAlign: "center",
 
             headerRight: () => {
               return (
                 <View style={{ marginHorizontal: 20 }}>
                   <Feather
-                    name="settings"
+                    name="bell"
                     size={24}
                     color={colorScheme === "dark" ? "white" : "black"}
                   />
