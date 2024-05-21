@@ -22,11 +22,7 @@ const SignIn = () => {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={styles.container}>
-          {/* <Image
-            source={images.logo}
-            resizeMode="contain"
-            style={{ width: 200, height: 200 }}
-          /> */}
+         
           <Text style={styles.title}>Login</Text>
           <FormField
             title="Email"
@@ -83,6 +79,7 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
     minHeight: Dimensions.get("window").height - 100,
   },
+
   title: {
     marginTop: 40,
     fontSize: 24,
