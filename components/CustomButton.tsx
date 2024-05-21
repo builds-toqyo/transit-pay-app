@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#1F41BB",
     borderRadius: 10,
-    minHeight: 62,
+    minHeight: 48,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",

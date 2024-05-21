@@ -24,9 +24,9 @@ const Welcome = () => {
                     </Text>   
                 </View>
                 <CustomButton
-                    title="Continue with Email"
-                    handlePress={() => router.push("/sign-in")}
-                    containerStyles="w-full mt-7"
+                  title="Continue with Email"
+                  handlePress={() => router.push("/sign-in")}
+                  containerStyles={{ width: "100%", marginTop: 7 }}
                 />
             </View>
             
