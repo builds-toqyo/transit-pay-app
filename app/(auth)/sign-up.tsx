@@ -7,15 +7,25 @@ import CustomButton from "@/components/CustomButton";
 
 const SignUp = () => {
   const [form, setForm] = React.useState({
+    fullname: "",
     username: "",
     email: "",
     password: "",
+    repeatPassword: "",
   });
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={styles.container}>
           <Text style={styles.title}>Register</Text>
+          <FormField
+            title="Full Name"
+            value={form.fullname}
+            otherStyles={styles.formField}
+            keyboardType="default"
+            placeholder="Full Name"
+            handleChangeText={(e) => setForm({ ...form, fullname: e })}
+          />
           <FormField
             title="Username"
             value={form.username}
@@ -40,6 +50,14 @@ const SignUp = () => {
             placeholder="
             Password"
             handleChangeText={(e) => setForm({ ...form, password: e })}
+          />
+          
+          <FormField
+            title="Repeat Password"
+            value={form.repeatPassword}
+            otherStyles={styles.formField}
+            placeholder="Repeat Password"
+            handleChangeText={(e) => setForm({ ...form, repeatPassword: e })}
           />
           <CustomButton
             title="Sign Up"

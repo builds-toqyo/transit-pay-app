@@ -24,6 +24,9 @@ const SignIn = () => {
         <View style={styles.container}>
          
           <Text style={styles.title}>Login</Text>
+          {/* full name of the user */}
+         
+
           <FormField
             title="Email"
             value={form.email}
