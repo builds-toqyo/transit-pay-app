@@ -1,15 +1,23 @@
 // src/components/FormField.tsx
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Image, TextInputProps, StyleSheet } from "react-native";
-
-
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  TextInputProps,
+  StyleSheet,
+  ViewStyle,
+} from "react-native";
+import { icons } from "../constants";
 
 interface FormFieldProps extends TextInputProps {
   title: string;
   value: string;
   placeholder: string;
   handleChangeText: (text: string) => void;
-  otherStyles?: string;
+  otherStyles?: ViewStyle;
 }
 
 const FormField: React.FC<FormFieldProps> = ({
@@ -22,8 +30,10 @@ const FormField: React.FC<FormFieldProps> = ({
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
+ 
+
   return (
-    <View style={[styles.container, otherStyles && styles[otherStyles]]}>
+    <View style={[styles.container, otherStyles]}>
       <Text style={styles.title}>{title}</Text>
       <View style={styles.inputContainer}>
         <TextInput
@@ -33,13 +43,14 @@ const FormField: React.FC<FormFieldProps> = ({
           placeholderTextColor="#7B7B8B"
           onChangeText={handleChangeText}
           secureTextEntry={title === "Password" && !showPassword}
-          {...props}
+          // {...props}
         />
         {title === "Password" && (
-          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
             <Image
               source={!showPassword ? icons.eye : icons.eyeHide}
               resizeMode="contain"
+              style={styles.icon}
             />
           </TouchableOpacity>
         )}
@@ -54,23 +65,24 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    color: "#E5E5E5",
+    color: "#000",
     fontFamily: "pmedium",
+    marginBottom: 8,
   },
   inputContainer: {
-    width: '100%',
-    height: 64,
+    width: "100%",
+    height: 48,
     paddingHorizontal: 16,
-    backgroundColor: "#101010",
-    borderRadius: 16,
-    borderWidth: 2,
+    backgroundColor: "#CBD5E1",
+    borderRadius: 10,
+    // borderWidth: 2,
     borderColor: "#333333",
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   textInput: {
     flex: 1,
-    color: "#FFFFFF",
+    color: "#000",
     fontFamily: "psemibold",
     fontSize: 16,
   },
