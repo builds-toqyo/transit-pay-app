@@ -3,12 +3,13 @@ import MainLayout from "./(stack)/_layout";
 import Authlayout from "./(auth)/_layout";
 import { StyleSheet, Text, View } from "react-native";
 import React, { useEffect } from "react";
-import {  SplashScreen, Stack } from "expo-router";
+import { SplashScreen, Stack } from "expo-router";
 import { useFonts } from "expo-font";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 
 SplashScreen.preventAutoHideAsync();
 
-const _layout = () => {
+export const _layout = () => {
   const [fontsLoaded, error] = useFonts({
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
     "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
@@ -20,6 +21,7 @@ const _layout = () => {
     "Poppins-SemiBold": require("../assets/fonts/Poppins-SemiBold.ttf"),
     "Poppins-Thin": require("../assets/fonts/Poppins-Thin.ttf"),
   });
+  const { authState, onLogout } = useAuth();
 
   useEffect(() => {
     if (error) throw error;
@@ -32,11 +34,22 @@ const _layout = () => {
     <>
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        {/* <Stack.Screen name="(stack)" options={{ headerShown: false }} /> */}
+        {authState?.authenticated ? (
+          <Stack.Screen name="(stack)" options={{ headerShown: false }} />
+        ) : (
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        )}
       </Stack>
     </>
   );
 };
 
-export default _layout;
+// export default _layout;
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <_layout />
+    </AuthProvider>
+  );
+}

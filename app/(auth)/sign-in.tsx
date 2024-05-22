@@ -6,41 +6,58 @@ import {
   ScrollView,
   Image,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link, router } from "expo-router";
 import FormField from "@/components/FormField";
 import CustomButton from "@/components/CustomButton";
-import images from "@/constants/images";
+// import images from "@/constants/images";
+import axios from "axios";
+import { useAuth, API_URL } from "../context/AuthContext";
+
 
 const SignIn = () => {
-  const [form, setForm] = React.useState({
-    email: "",
-    password: "",
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { onLogin } = useAuth();
+
+  useEffect(() => {
+    const testCall = async () => {
+      const result = await axios.get(`${API_URL}/`);
+        console.log(result.data);
+    }
+    testCall();
+    }
+    , []);
+
+  const login = async () => {
+    const result = await onLogin(email, password);
+    if (result && result.error) {
+      alert(result.msg);
+    } else {
+      router.push("/home");
+    }
+  };
+  
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={styles.container}>
-         
           <Text style={styles.title}>Login</Text>
-          {/* full name of the user */}
-         
-
           <FormField
             title="Email"
-            value={form.email}
+            value={email}
             otherStyles={styles.formField}
             keyboardType="email-address"
             placeholder="Email Address"
-            handleChangeText={(e) => setForm({ ...form, email: e })}
+            handleChangeText={setEmail}
           />
           <FormField
             title="Password"
-            value={form.password}
+            value={password}
             otherStyles={styles.formField}
             placeholder={"Password"}
-            handleChangeText={(e) => setForm({ ...form, password: e })}
+            handleChangeText={setPassword}
             secureTextEntry={true}
           />
 
@@ -50,7 +67,8 @@ const SignIn = () => {
           <CustomButton
             title="Sign In"
             containerStyles={styles.signInButton}
-            handlePress={() => router.push("/home")}
+            // handlePress={() => router.push("/home")}
+            handlePress={login}
           />
           <View style={styles.signUpContainer}>
             <Text style={styles.signUpText}>Don't have an account?</Text>
@@ -104,17 +122,17 @@ const styles = StyleSheet.create({
   signUpText: {
     fontSize: 18,
     color: "#000",
-    fontFamily: "pregular",
+    // fontFamily: "pregular",
   },
   signUpLink: {
     fontSize: 18,
-    fontFamily: "psemibold",
+    // fontFamily: "psemibold",
     color: "#1F41BB",
     marginLeft: 4,
   },
   forgotPasswordLink: {
     fontSize: 18,
-    fontFamily: "psemibold",
+    // fontFamily: "psemibold",
     color: "#1F41BB",
     textAlign: "right",
     marginTop: 4,

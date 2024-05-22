@@ -28,9 +28,7 @@ const Welcome = () => {
                   handlePress={() => router.push("/sign-in")}
                   containerStyles={{ width: "100%", marginTop: 7 }}
                 />
-            </View>
-            
-            
+            </View>            
         </ScrollView>
 
         <StatusBar backgroundColor="#000000" style="light" />
