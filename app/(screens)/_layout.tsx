@@ -1,12 +1,12 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text } from "react-native";
+import React from "react";
+import { Stack } from "expo-router";
 
 const ScreenLayout = () => {
   return (
-    <View>
-      <Text>ScreenLayout</Text>
-    </View>
-  )
-}
-
-export default ScreenLayout
+    <Stack>
+      <Stack.Screen name="notifications" options={{ headerShown: true }} />
+    </Stack>
+  );
+};
+export default ScreenLayout;

@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { ReactNode } from "react";
 import {
   MaterialTopTabNavigationEventMap,
   MaterialTopTabNavigationOptions,
@@ -104,14 +104,14 @@ const RootLayout = () => {
   );
 };
 
-const ActionButton = ({ icon, label }) => (
-  <TouchableOpacity className="items-center">
+const TransportButton = ({ icon, label }: { icon: ReactNode, label: string }) => (
+  <TouchableOpacity className="items-center flex">
     {icon}
-    <Text className="text-sm font-medium mt-2">{label}</Text>
+    <Text className="text-[9px] font-medium  text-center">{label}</Text>
   </TouchableOpacity>
 );
 
-const TransportButton = ({ icon, label }) => (
+const ActionButton = ({ icon, label }: { icon: ReactNode, label: string }) => (
   <TouchableOpacity className="items-center flex">
     {icon}
     <Text className="text-[9px] font-medium  text-center">{label}</Text>

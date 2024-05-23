@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import React from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -6,9 +7,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 const Settings = () => {
   return (
     <SafeAreaView className="flex-1 bg-white">
-      <ScrollView
-        contentContainerStyle={{ flexGrow: 1, justifyContent: "space-between" }}
-      >
+      <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: "space-between" }} >
         <View className="flex-1 p-4">
           <View className="items-center mb-6">
             <Text className="text-3xl font-bold text-blue-500">Settings</Text>
@@ -43,11 +42,13 @@ const Settings = () => {
                 Notifications
               </Text>
             </View>
-            <Ionicons
-              name="chevron-forward-outline"
-              size={24}
-              color="#4B5563"
-            />
+            <Link href="notifications">
+              <Ionicons
+                name="chevron-forward-outline"
+                size={24}
+                color="#4B5563"
+              />
+            </Link>
           </View>
           <View className=" p-4 rounded-lg  mb-4 flex-row justify-between items-center">
             <View className="flex-row items-center">
@@ -61,11 +62,13 @@ const Settings = () => {
                 Your Wallet
               </Text>
             </View>
-            <Ionicons
-              name="chevron-forward-outline"
-              size={24}
-              color="#4B5563"
-            />
+            <Link href="wallet">
+              <Ionicons
+                name="chevron-forward-outline"
+                size={24}
+                color="#4B5563"
+              />
+            </Link>
           </View>
           <View className=" p-4 rounded-lg  mb-4 flex-row justify-between items-center">
             <View className="flex-row items-center">
