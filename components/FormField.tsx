@@ -1,4 +1,3 @@
-// src/components/FormField.tsx
 import React, { useState } from "react";
 import {
   View,
@@ -30,7 +29,7 @@ const FormField: React.FC<FormFieldProps> = ({
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
- 
+  const isPasswordField = title === "Password" || title === "Repeat Password";
 
   return (
     <View style={[styles.container, otherStyles]}>
@@ -42,11 +41,11 @@ const FormField: React.FC<FormFieldProps> = ({
           placeholder={placeholder}
           placeholderTextColor="#7B7B8B"
           onChangeText={handleChangeText}
-          secureTextEntry={title === "Password" && !showPassword}
-          // {...props}
+          secureTextEntry={isPasswordField && !showPassword}
+          {...props} // Spread the rest of the props to ensure all passed props are applied
         />
-        {title === "Password" && (
-           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+        {isPasswordField && (
+          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
             <Image
               source={!showPassword ? icons.eye : icons.eyeHide}
               resizeMode="contain"
@@ -66,7 +65,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     color: "#000",
-    fontFamily: "pmedium",
+    // fontFamily: "pmedium",
     marginBottom: 8,
   },
   inputContainer: {
@@ -75,7 +74,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     backgroundColor: "#CBD5E1",
     borderRadius: 10,
-    // borderWidth: 2,
     borderColor: "#333333",
     flexDirection: "row",
     alignItems: "center",
@@ -83,7 +81,7 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     color: "#000",
-    fontFamily: "psemibold",
+    // fontFamily: "psemibold",
     fontSize: 16,
   },
   icon: {
