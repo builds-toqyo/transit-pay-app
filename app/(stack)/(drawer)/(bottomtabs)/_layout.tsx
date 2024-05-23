@@ -5,76 +5,83 @@ import {
   MaterialIcons,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
+
 const _layout = () => {
   return (
-    <Tabs>
+    <Tabs 
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: "white",
+        tabBarInactiveTintColor: "lightgray",
+        tabBarShowLabel: false,  
+        tabBarStyle: {
+          backgroundColor: "#1F41BB",
+          borderTopColor: "transparent",
+          margin: 6,
+          borderRadius: 40,
+          paddingBottom: 8,
+          paddingTop: 8,
+          height: 55,
+        },
+      }}
+    >
       <Tabs.Screen
         name="(toptabs)"
         options={{
           title: "Home",
-          headerShown: false,
-          tabBarIcon: () => {
-            return <Entypo name="home" size={24} color={"black"} />;
+          tabBarIcon: ({ color, size }) => {
+            return <Entypo name="home" color={color} size={size} />;
           },
         }}
       />
+        {/* <Tabs.Screen
+        name="home"
+        options={{
+          title: "Home",
+          tabBarIcon: ({ color, size }) => {
+            return <Entypo name="home" color={color} size={size} />;
+          },
+        }}
+      /> */}
+      
       <Tabs.Screen
         name="wallet"
         options={{
-          tabBarIcon: () => {
-            return <MaterialIcons name="wallet" size={24} color={"black"} />;
+          tabBarIcon: ({ color, size }) => {
+            return <MaterialIcons name="wallet" color={color} size={size} />;
           },
-          headerShown: false,
         }}
       />
       <Tabs.Screen
         name="analytics"
         options={{
-          tabBarIcon: () => {
+          tabBarIcon: ({ color, size }) => {
             return (
               <MaterialCommunityIcons
                 name="google-analytics"
-                size={24}
-                color={"black"}
+                color={color}
+                size={size}
               />
             );
           },
-          headerShown: false,
-        }}
-      />
-      <Tabs.Screen
-        name="transport"
-        options={{
-          tabBarIcon: () => {
-            return (
-              <MaterialIcons
-                name="emoji-transportation"
-                size={24}
-                color={"black"}
-              />
-            );
-          },
-          headerShown: false,
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          tabBarIcon: () => {
-            return (
-              <MaterialIcons name="account-circle" size={24} color={"black"} />
-            );
-          },
-          headerShown: false,
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
-          tabBarIcon: () => {
-            return <MaterialIcons name="settings" size={24} color={"black"} />;
+          tabBarIcon: ({ color, size }) => {
+            return <MaterialIcons name="settings" color={color} size={size} />;
           },
-          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          tabBarIcon: ({ color, size }) => {
+            return (
+              <MaterialIcons name="account-circle" color={color} size={size} />
+            );
+          },
         }}
       />
     </Tabs>

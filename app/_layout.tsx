@@ -34,11 +34,11 @@ export const _layout = () => {
     <>
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
-        {authState?.authenticated ? (
+        {/* {authState?.authenticated ? ( */}
           <Stack.Screen name="(stack)" options={{ headerShown: false }} />
-        ) : (
+        {/* ) : ( */}
           <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        )}
+        {/* )} */}
       </Stack>
     </>
   );

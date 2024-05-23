@@ -1,39 +1,120 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import React from "react";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 const Settings = () => {
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <ScrollView contentContainerStyle={styles.scrollView}>
-        <View style={styles.container}>
-          <Text style={styles.title}>Settings</Text>
+    <SafeAreaView className="flex-1 bg-white">
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1, justifyContent: "space-between" }}
+      >
+        <View className="flex-1 p-4">
+          <View className="items-center mb-6">
+            <Text className="text-3xl font-bold text-blue-500">Settings</Text>
+          </View>
+          <View className="p-4 rounded-lg  mb-4 flex-row justify-between items-center">
+            <View className="flex-row items-center">
+              <Ionicons
+                name="person-outline"
+                size={24}
+                color="#4B5563"
+                className="mr-4"
+              />
+              <Text className="text-lg font-semibold text-gray-800">
+                Profile
+              </Text>
+            </View>
+            <Ionicons
+              name="chevron-forward-outline"
+              size={24}
+              color="#4B5563"
+            />
+          </View>
+          <View className=" p-4 rounded-lg  mb-4 flex-row justify-between items-center">
+            <View className="flex-row items-center">
+              <Ionicons
+                name="notifications-outline"
+                size={24}
+                color="#4B5563"
+                className="mr-4"
+              />
+              <Text className="text-lg font-semibold text-gray-800">
+                Notifications
+              </Text>
+            </View>
+            <Ionicons
+              name="chevron-forward-outline"
+              size={24}
+              color="#4B5563"
+            />
+          </View>
+          <View className=" p-4 rounded-lg  mb-4 flex-row justify-between items-center">
+            <View className="flex-row items-center">
+              <Ionicons
+                name="wallet-outline"
+                size={24}
+                color="#4B5563"
+                className="mr-4"
+              />
+              <Text className="text-lg font-semibold text-gray-800">
+                Your Wallet
+              </Text>
+            </View>
+            <Ionicons
+              name="chevron-forward-outline"
+              size={24}
+              color="#4B5563"
+            />
+          </View>
+          <View className=" p-4 rounded-lg  mb-4 flex-row justify-between items-center">
+            <View className="flex-row items-center">
+              <Ionicons
+                name="log-in-outline"
+                size={24}
+                color="#4B5563"
+                className="mr-4"
+              />
+              <Text className="text-lg font-semibold text-gray-800">
+                Login Settings
+              </Text>
+            </View>
+            <Ionicons
+              name="chevron-forward-outline"
+              size={24}
+              color="#4B5563"
+            />
+          </View>
+          <View className=" p-4 rounded-lg  mb-4 flex-row justify-between items-center">
+            <View className="flex-row items-center">
+              <Ionicons
+                name="call-outline"
+                size={24}
+                color="#4B5563"
+                className="mr-4"
+              />
+              <Text className="text-lg font-semibold text-gray-800">
+                Service Center
+              </Text>
+            </View>
+            <Ionicons
+              name="chevron-forward-outline"
+              size={24}
+              color="#4B5563"
+            />
+          </View>
+        </View>
+        <View className="items-center my-8">
+          <TouchableOpacity className=" p-4 rounded-full ">
+            <Ionicons name="log-out-outline" size={32} color="#4B5563" />
+          </TouchableOpacity>
+          <Text className="mt-4 text-lg font-semibold text-blue-500">
+            Log Out
+          </Text>
         </View>
       </ScrollView>
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default Settings
-
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-  scrollView: {
-    flexGrow: 1,
-    justifyContent: "center",
-  },
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-
-})
+export default Settings;
