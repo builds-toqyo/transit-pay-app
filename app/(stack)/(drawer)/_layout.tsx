@@ -13,12 +13,12 @@ const _layout = () => {
         drawerContent={CustomDrawerContent}
         screenOptions={{
           headerStyle: {
-            backgroundColor: colorScheme === "dark" ? "#181818" : "#fff",
+            backgroundColor: colorScheme === "dark" ? "#fff" : "#181818",
           },
           drawerStyle: {
-            backgroundColor: colorScheme === "dark" ? "#181818" : "#fff",
+            backgroundColor: colorScheme === "dark" ? "#fff" : "#181818",
           },
-          headerTintColor: colorScheme === "dark" ? "white" : "black",
+          headerTintColor: colorScheme === "dark" ? "black" : "white",
         }}
       >
         <Drawer.Screen
@@ -33,7 +33,7 @@ const _layout = () => {
                   <Feather
                     name="bell"
                     size={24}
-                    color={colorScheme === "dark" ? "white" : "black"}
+                    color={colorScheme === "dark" ? "black" : "black"}
                   />
                 </View>
               );

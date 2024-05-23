@@ -1,139 +1,127 @@
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image } from 'react-native'
-import React, { useState } from 'react'
-import CustomButton from '@/components/CustomButton'
-import FormField from '@/components/FormField'
-import { Link } from 'expo-router'
-import { icons, images } from '@/constants'
+import { icons, images } from "@/constants";
+import { Link } from "expo-router";
+import React from "react";
+import { ScrollView, Text, TouchableOpacity, View, Image } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-const profile = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [fullname, setFullname] = useState("");
-  const [phone, setPhone] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
-  const [currentpassword, setCurrentPassword] = useState("");
-  
+const Profile = () => {
   return (
-    <SafeAreaView style={styles.safeArea}>
-    <ScrollView contentContainerStyle={styles.scrollView}>
-      {/* add image here  */}
-      <View style={styles.container}>
-        <Image source={icons.profile} style={styles.logo} />
-        
+    <SafeAreaView className="flex-1 bg-white">
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1, justifyContent: "space-between" }}
+      >
+        <View className="flex-1 p-4">
+          <View className="items-center mb-6">
+            <Text className="text-3xl font-bold text-blue-500">Profile</Text>
+          </View>
+          <View className="items-center mb-6">
+            <Image
+              source={icons.profile} 
+              className="w-24 h-24 rounded-full mb-2"
+            />
+            <View className=" flex flex-row items-center gap-3">
+              <Text className="text-xl font-semibold text-gray-800">
+                Jaka Joko
+              </Text>
+              <Link href="/edit-profile">
+              <Ionicons
+              // edit icon
+                name="create-outline"              
+                size={24}
+                color="#6B7280"
+                className=""
+              />
+              </Link>
+            </View>
+          </View>
+
+          <View className=" p-4 rounded-lg  mb-4 flex-row justify-between items-center">
+            <View className="flex-row items-center">
+              <Ionicons
+                name="link-outline"
+                size={24}
+                color="#6B7280"
+                className="mr-4"
+              />
+              <Text className="text-lg font-semibold text-gray-800">
+                Connected Account
+              </Text>
+            </View>
+            <Ionicons
+              name="chevron-forward-outline"
+              size={24}
+              color="#6B7280"
+            />
+          </View>
+          <View className=" p-4 rounded-lg  mb-4 flex-row justify-between items-center">
+            <View className="flex-row items-center">
+              
+              <Ionicons
+                name="shield-outline"
+                size={24}
+                color="#6B7280"
+                className="mr-4"
+              />
+              
+              <Text className="text-lg font-semibold text-gray-800">
+                Privacy and Security
+              </Text>
+            </View>
+            <Ionicons
+              name="chevron-forward-outline"
+              size={24}
+              color="#6B7280"
+            />
+          </View>
+          <View className=" p-4 rounded-lg  mb-4 flex-row justify-between items-center">
+            <View className="flex-row items-center">
+              <Ionicons
+                name="log-in-outline"
+                size={24}
+                color="#6B7280"
+                className="mr-4"
+              />
+              <Text className="text-lg font-semibold text-gray-800">
+                Login Settings
+              </Text>
+            </View>
+            <Ionicons
+              name="chevron-forward-outline"
+              size={24}
+              color="#6B7280"
+            />
+          </View>
+          <View className=" p-4 rounded-lg  mb-4 flex-row justify-between items-center">
+            <View className="flex-row items-center">
+              <Ionicons
+                name="call-outline"
+                size={24}
+                color="#6B7280"
+                className="mr-4"
+              />
+              <Text className="text-lg font-semibold text-gray-800">
+                Service Center
+              </Text>
+            </View>
+            <Ionicons
+              name="chevron-forward-outline"
+              size={24}
+              color="#6B7280"
+            />
+          </View>
         </View>
+        <View className="items-center my-8">
+          <TouchableOpacity className=" p-4 rounded-full ">
+            <Ionicons name="trash-outline" size={32} color="#DC2626" />
+          </TouchableOpacity>
+          <Text className="mt-2 text-lg font-semibold text-red-600">
+            Delete Account
+          </Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
-      <View style={styles.container}>
-        <Text style={styles.title}>Profile</Text>
-        <FormField
-          title="Full Name"
-          value={fullname}
-          otherStyles={styles.formField}
-          keyboardType="default"
-          placeholder="Full Name"
-          handleChangeText={setFullname}
-        />
-        <FormField
-          title="Email"
-          value={email}
-          otherStyles={styles.formField}
-          keyboardType="email-address"
-          placeholder="Email Address"
-          handleChangeText={setEmail}
-        />
-        <FormField
-          title="Phone Number"
-          value={phone}
-          otherStyles={styles.formField}
-          keyboardType="default"
-          placeholder="Phone Number"
-          handleChangeText={setPhone}
-        />
-
-        <FormField
-          title="Current Password"
-          value={currentpassword}
-          otherStyles={styles.formField}
-          placeholder={"Password"}
-          handleChangeText={setCurrentPassword}
-          secureTextEntry={true}
-        />
-        <FormField
-          title="Password"
-          value={password}
-          otherStyles={styles.formField}
-          placeholder={"Password"}
-          handleChangeText={setPassword}
-          secureTextEntry={true}
-        />
-        <FormField
-          title="Repeat Password"
-          value={repeatPassword}
-          otherStyles={styles.formField}
-          placeholder={"Repeat Password"}
-          handleChangeText={setRepeatPassword}
-          secureTextEntry={true}
-        />
-        <CustomButton
-            title="Update Password"
-            containerStyles={styles.signUpButton} handlePress={function (): void {
-              throw new Error('Function not implemented.')
-            } }          // handlePress={register}
-        />
-        <CustomButton
-          title="Update Profile"
-          containerStyles={styles.signUpButton}
-          handlePress={function (): void {
-            throw new Error('Function not implemented.')
-          } }          // handlePress={register}
-        />
-
-        
-      </View>
-    </ScrollView>
-  </SafeAreaView>
-  )
-}
-
-export default profile
-
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-  },
-  scrollView: {
-    flexGrow: 1,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  logo: {
-    width: 100,
-    height: 100,
-    // marginBottom: 2,
-    borderRadius: 100,
-
-  },
-
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  formField: {
-    marginBottom: 3,
-  },
-  signUpButton: {
-    width: '100%',
-    // marginBottom: 20,
-    marginTop: 20,
-  },
-  signInLink: {
-    color: 'blue',
-    textAlign: 'center',
-  },
-
-
-})
+export default Profile;

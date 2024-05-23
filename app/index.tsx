@@ -7,7 +7,7 @@ import {  router } from "expo-router";
 
 const Welcome = () => {
   return (
-     <SafeAreaView className="h-full bg-primary">
+     <SafeAreaView className=" bg-white">
         <ScrollView
           contentContainerStyle={{
             height: "100%"
@@ -23,9 +23,10 @@ const Welcome = () => {
                     <Text className="text-black-200">Transitease</Text>
                     </Text>   
                 </View>
+                
                 <CustomButton
                   title="Continue with Email"
-                  handlePress={() => router.push("/sign-in")}
+                  handlePress={() => router.push("/(toptabs)")}
                   containerStyles={{ width: "100%", marginTop: 7 }}
                 />
             </View>            
